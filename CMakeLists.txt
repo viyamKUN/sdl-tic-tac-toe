@@ -18,6 +18,9 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(./include)
 add_executable(tictactoe
+  src/event.cpp
+  src/surface.cpp
+  src/app.cpp
   src/main.cpp
 )
 
