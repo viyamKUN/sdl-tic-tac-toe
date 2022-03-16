@@ -28,4 +28,12 @@ bool Surface::OnDraw(SDL_Surface* destination, SDL_Surface* src, int x, int y) {
   return true;
 }
 
+bool Surface::Transparent(SDL_Surface* destination, int R, int G, int B) {
+  if (destination == NULL) {
+    return false;
+  }
+  SDL_SetColorKey(destination, SDL_SRCCOLORKEY | SDL_RLEACCEL,
+                  SDL_MapRGB(destination->format, R, G, B));
+  return true;
+}
 }  // namespace Game

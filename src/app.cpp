@@ -51,6 +51,8 @@ bool App::OnInit() {
   if ((o_image = Surface::OnLoad("../assets/o.bmp")) == NULL) {
     return false;
   }
+  Surface::Transparent(x_image, 255, 255, 255);
+  Surface::Transparent(o_image, 255, 255, 255);
   return true;
 }
 
@@ -62,6 +64,7 @@ void App::OnLoop() {}
 
 void App::OnRender() {
   Surface::OnDraw(display, grid, 0, 0);
+  Surface::OnDraw(display, x_image, 0, 0);
   SDL_Flip(display);
 }
 

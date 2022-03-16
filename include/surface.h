@@ -10,6 +10,7 @@ class Surface {
   ~Surface();
   static SDL_Surface* OnLoad(const char* File);
   static bool OnDraw(SDL_Surface* destination, SDL_Surface* src, int x, int y);
+  static bool Transparent(SDL_Surface* destination, int R, int G, int B);
 };
 }  // namespace Game
 
