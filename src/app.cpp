@@ -4,7 +4,10 @@
 
 #include "surface.h"
 
-namespace Game {
+using namespace renderer;
+
+namespace game {
+
 App::App() {
   grid_image = NULL;
   x_image = NULL;
@@ -113,4 +116,4 @@ void App::SetCell(int id, int type) {
   grid[id] = type;
 }
 
-}  // namespace Game
+}  // namespace game

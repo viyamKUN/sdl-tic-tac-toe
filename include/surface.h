@@ -3,7 +3,8 @@
 
 #include <SDL.h>
 
-namespace Game {
+namespace renderer {
+
 class Surface {
  public:
   Surface(/* args */);
@@ -12,6 +13,6 @@ class Surface {
   static bool OnDraw(SDL_Surface* destination, SDL_Surface* src, int x, int y);
   static bool Transparent(SDL_Surface* destination, int R, int G, int B);
 };
-}  // namespace Game
+}  // namespace renderer
 
 #endif

@@ -5,7 +5,8 @@
 
 #include "event.h"
 
-namespace Game {
+namespace game {
+
 class App : Event {
  private:
   bool isRunning;
@@ -18,7 +19,6 @@ class App : Event {
 
  private:
   int grid[9];
-
   enum { GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O };
 
  public:
@@ -27,17 +27,19 @@ class App : Event {
 
   int OnExcute();
   bool OnInit();
-  void OnEvent(SDL_Event* event);
-  void OnLButtonDown(int mX, int mY);
-  void OnExit();
   void OnLoop();
   void OnRender();
   void OnCleanUp();
 
  public:
+  void OnEvent(SDL_Event* event);
+  void OnLButtonDown(int mX, int mY);
+  void OnExit();
+
+ public:
   void Reset();
   void SetCell(int id, int type);
 };
-}  // namespace Game
+}  // namespace game
 
 #endif
