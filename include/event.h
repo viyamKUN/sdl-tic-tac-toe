@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 
-namespace Game {
+namespace game {
 class Event {
  public:
   Event(/* args */);
@@ -32,5 +32,5 @@ class Event {
   virtual void OnExit();
   virtual void OnUser(Uint8 type, int code, void* data, void* data2);
 };
-}  // namespace Game
+}  // namespace game
 #endif  // __EVENT_H__

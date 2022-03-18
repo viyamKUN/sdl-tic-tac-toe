@@ -1,10 +1,11 @@
 #include "event.h"
 
-namespace Game {
+namespace game {
 
 Event::Event(/* args */) {}
 Event::~Event() {}
 
+// Get events and call valid method
 void Event::OnEvent(SDL_Event* event) {
   switch (event->type) {
     case SDL_ACTIVEEVENT: {
@@ -196,4 +197,4 @@ void Event::OnUser(Uint8 type, int code, void* data, void* data2) {
   // Pure virtual. Do Nothing
 }
 
-}  // namespace Game
+}  // namespace game

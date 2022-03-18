@@ -1,6 +1,6 @@
 #include "surface.h"
 
-namespace Game {
+namespace renderer {
 Surface::Surface(/* args */) {}
 
 Surface::~Surface() {}
@@ -36,4 +36,4 @@ bool Surface::Transparent(SDL_Surface* destination, int R, int G, int B) {
                   SDL_MapRGB(destination->format, R, G, B));
   return true;
 }
-}  // namespace Game
+}  // namespace renderer
