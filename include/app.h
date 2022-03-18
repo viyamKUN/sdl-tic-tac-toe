@@ -11,7 +11,6 @@ class App : Event {
  private:
   bool isRunning;
   SDL_Surface* display;
-
   SDL_Surface* grid_image;
   SDL_Surface* x_image;
   SDL_Surface* o_image;
@@ -22,24 +21,30 @@ class App : Event {
   enum { GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O };
 
  public:
-  App(/* args */);
+  App();
   ~App();
 
   int OnExcute();
+
+ private:
   bool OnInit();
   void OnLoop();
-  void OnRender();
   void OnCleanUp();
 
- public:
+ private:
+  void OnRender();
+  bool InitSurfaces();
+
+ private:
   void OnEvent(SDL_Event* event);
   void OnLButtonDown(int mX, int mY);
   void OnExit();
 
- public:
+ private:
   void Reset();
   void SetCell(int id, int type);
 };
+
 }  // namespace game
 
 #endif

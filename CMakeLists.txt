@@ -20,7 +20,10 @@ include_directories(./include)
 add_executable(tictactoe
   src/event.cpp
   src/surface.cpp
-  src/app.cpp
+  src/app/app.cpp
+  src/app/app_event.cpp
+  src/app/app_game_logic.cpp
+  src/app/app_render.cpp
   src/main.cpp
 )
 
