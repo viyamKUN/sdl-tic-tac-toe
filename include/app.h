@@ -20,6 +20,11 @@ class App : Event {
   int grid[9];
   enum { GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O };
 
+ private:
+  const char* AssetPath = "../assets/";
+  const int GridSize = 200;
+  const int GridCount = 3;
+
  public:
   App();
   ~App();
@@ -43,6 +48,9 @@ class App : Event {
  private:
   void Reset();
   void SetCell(int id, int type);
+
+ private:
+  const char* GetFileDir(const char* fileName);
 };
 
 }  // namespace game
