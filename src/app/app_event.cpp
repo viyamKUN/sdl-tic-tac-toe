@@ -13,10 +13,11 @@ void App::OnLButtonDown(int mX, int mY) {
   }
   if (current_player == 0) {
     SetCell(id, GRID_TYPE_X);
+    current_player = 1;
+    OnAutoTurn();
   } else {
-    SetCell(id, GRID_TYPE_O);
+    return;
   }
-  current_player = (current_player + 1) % 2;
 }
 
 void App::OnExit() { isRunning = false; }

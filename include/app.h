@@ -48,6 +48,7 @@ class App : Event {
  private:
   void Reset();
   void SetCell(int id, int type);
+  void OnAutoTurn();
 
  private:
   const char* GetFileDir(const char* fileName);

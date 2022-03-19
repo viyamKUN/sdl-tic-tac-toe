@@ -16,4 +16,10 @@ void App::SetCell(int id, int type) {
   grid[id] = type;
 }
 
+void App::OnAutoTurn() {
+  // Coumputer Turn
+  // 남은 칸 중에서 적절한 칸에 토큰 놓기
+  current_player = 0;
+}
+
 }  // namespace game
