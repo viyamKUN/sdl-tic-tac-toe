@@ -1,11 +1,14 @@
 #include <SDL.h>
 
+#include <iostream>
+
 #include "app.h"
 
 namespace game {
 
 void App::Reset() {
-  for (int i = 0; i < 9; i++) {
+  int whole_grid_count = GridCount * GridCount;
+  for (int i = 0; i < whole_grid_count; i++) {
     grid[i] = GRID_TYPE_NONE;
   }
 }
@@ -16,9 +19,17 @@ void App::SetCell(int id, int type) {
   grid[id] = type;
 }
 
+// Coumputer Turn
 void App::OnAutoTurn() {
-  // Coumputer Turn
-  // 남은 칸 중에서 적절한 칸에 토큰 놓기
+  // 시작 시: 상대가 가운데에서 하면 모서리 방어, 아니면 반대
+  // 두 개 연속으로 있는 곳이 있으면 방어
+  int whole_grid_count = GridCount * GridCount;
+  for (int i = 0; i < whole_grid_count; i++) {
+    if (grid[i] == GRID_TYPE_NONE) {
+      SetCell(i, GRID_TYPE_O);
+      break;
+    }
+  }
   current_player = 0;
 }
 
