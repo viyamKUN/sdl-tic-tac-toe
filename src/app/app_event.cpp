@@ -15,9 +15,8 @@ void App::OnLButtonDown(int mX, int mY) {
     SetCell(id, GRID_TYPE_X);
     current_player = 1;
     OnAutoTurn();
-  } else {
-    return;
   }
+  CheckWinner();
 }
 
 void App::OnExit() { isRunning = false; }

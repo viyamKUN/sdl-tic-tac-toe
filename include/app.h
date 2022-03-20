@@ -24,6 +24,7 @@ class App : Event {
   const char* AssetPath = "../assets/";
   const int GridSize = 200;
   const int GridCount = 3;
+  const int WholeGridCount = 9;
 
  public:
   App();
@@ -49,6 +50,8 @@ class App : Event {
   void Reset();
   void SetCell(int id, int type);
   void OnAutoTurn();
+  void CheckWinner();
+  void EndGame(int winner);
 
  private:
   const char* GetFileDir(const char* fileName);
