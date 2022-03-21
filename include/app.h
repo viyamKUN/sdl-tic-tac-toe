@@ -18,7 +18,7 @@ class App : Event {
 
  private:
   int grid[9];
-  enum { GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O };
+  enum GRID_TYPE { NONE = 0, PLAYER, COMPUTER };
 
  private:
   const char* AssetPath = "../assets/";

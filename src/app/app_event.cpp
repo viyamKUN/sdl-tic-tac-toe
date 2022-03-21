@@ -8,11 +8,11 @@ void App::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
 void App::OnLButtonDown(int mX, int mY) {
   int id = (mX / GridSize) + (mY / GridSize) * 3;
-  if (grid[id] != GRID_TYPE_NONE) {
+  if (grid[id] != NONE) {
     return;
   }
   if (current_player == 0) {
-    SetCell(id, GRID_TYPE_X);
+    SetCell(id, PLAYER);
     current_player = 1;
     OnAutoTurn();
   }

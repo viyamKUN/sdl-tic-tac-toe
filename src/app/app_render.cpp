@@ -34,9 +34,9 @@ void App::OnRender() {
   for (int i = 0; i < WholeGridCount; i++) {
     int x = (i % GridCount) * GridSize;
     int y = (i / GridCount) * GridSize;
-    if (grid[i] == GRID_TYPE_X) {
+    if (grid[i] == PLAYER) {
       Surface::OnDraw(display, x_image, x, y);
-    } else if (grid[i] == GRID_TYPE_O) {
+    } else if (grid[i] == COMPUTER) {
       Surface::OnDraw(display, o_image, x, y);
     }
   }
