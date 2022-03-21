@@ -48,8 +48,8 @@ void App::CheckWinner() {
       if (row_first != grid[i * GridCount + j]) row = false;
       // column check
       if (column_first != grid[j * GridCount + i]) column = false;
-      // slope check
     }
+    // slope check
     if (center != grid[i * GridCount + i]) slope_down = false;
     if (center != grid[(i + 1) * (GridCount - 1)]) slope_up = false;
 
