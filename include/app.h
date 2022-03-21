@@ -52,6 +52,8 @@ class App : Event {
   void OnAutoTurn();
   void CheckWinner();
   void EndGame(int winner);
+  int GetGridIndexToDefend();
+  int GetEmptyGridIndexRandom();
 
  private:
   const char* GetFileDir(const char* fileName);
