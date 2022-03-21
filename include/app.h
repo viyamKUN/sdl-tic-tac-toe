@@ -10,6 +10,7 @@ namespace game {
 class App : Event {
  private:
   bool isRunning;
+  bool isOnGame;
   SDL_Surface* display;
   SDL_Surface* grid_image;
   SDL_Surface* x_image;
@@ -18,12 +19,13 @@ class App : Event {
 
  private:
   int grid[9];
-  enum { GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O };
+  enum GRID_TYPE { NONE = 0, PLAYER, COMPUTER };
 
  private:
   const char* AssetPath = "../assets/";
   const int GridSize = 200;
   const int GridCount = 3;
+  const int WholeGridCount = 9;
 
  public:
   App();
@@ -48,6 +50,11 @@ class App : Event {
  private:
   void Reset();
   void SetCell(int id, int type);
+  void OnAutoTurn();
+  void CheckWinner();
+  void EndGame(int winner);
+  int GetGridIndexToDefendOrAttack(int turn);
+  int GetEmptyGridIndexRandom();
 
  private:
   const char* GetFileDir(const char* fileName);
