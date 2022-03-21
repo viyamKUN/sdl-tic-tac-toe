@@ -10,6 +10,7 @@ void App::Reset() {
   for (int i = 0; i < WholeGridCount; i++) {
     grid[i] = NONE;
   }
+  isOnGame = true;
 }
 
 void App::SetCell(int id, int type) {
@@ -20,8 +21,6 @@ void App::SetCell(int id, int type) {
 
 // Coumputer Turn
 void App::OnAutoTurn() {
-  // 시작 시: 상대가 가운데에서 하면 모서리 방어, 아니면 반대
-  // 두 개 연속으로 있는 곳이 있으면 방어
   int selected_Index = 0;
   int center = ((GridCount - 1) / 2) * (GridCount + 1);
   if (grid[center] == NONE) {
@@ -29,7 +28,7 @@ void App::OnAutoTurn() {
     selected_Index = center;
   } else {
     // Defend if there are (GridCount - 1) in a line
-    int index = GetGridIndexToDefend();
+    int index = GetGridIndexToDefendOrAttack(COMPUTER);
     if (index < 0) {
       selected_Index = GetEmptyGridIndexRandom();
     } else {
@@ -38,6 +37,7 @@ void App::OnAutoTurn() {
   }
   SetCell(selected_Index, COMPUTER);
   current_player = 0;
+  CheckWinner();
 }
 
 // Check winner
@@ -75,21 +75,14 @@ void App::CheckWinner() {
 void App::EndGame(int winner) {
   const char* winner_name = (winner == PLAYER ? "player" : "computer");
   std::cout << "winner is " << winner_name << std::endl;
+  isOnGame = false;
 }
 
-int App::GetGridIndexToDefend() {
-  for (int i = 0; i < WholeGridCount; i++) {
-    if (grid[i] != NONE) continue;
-    // 만약에 그 칸이 비어있으면 좌우대각선보고 막아야하면 막음
-    return i;
-  }
-  return -1;
-}
+int App::GetGridIndexToDefendOrAttack(int turn) { return -1; }
 
 int App::GetEmptyGridIndexRandom() {
   int start_index = rand() % WholeGridCount;
   int index = start_index;
-  // 비어있는 칸 중 아무 칸을 선택
   while (index != start_index - 1) {
     if (grid[index] == NONE) {
       return index;

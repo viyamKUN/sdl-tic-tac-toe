@@ -15,6 +15,7 @@ App::App() {
 
   display = NULL;
   isRunning = true;
+  isOnGame = false;
   current_player = 0;
 }
 

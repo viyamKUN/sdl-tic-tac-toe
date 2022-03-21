@@ -10,6 +10,7 @@ namespace game {
 class App : Event {
  private:
   bool isRunning;
+  bool isOnGame;
   SDL_Surface* display;
   SDL_Surface* grid_image;
   SDL_Surface* x_image;
@@ -52,7 +53,7 @@ class App : Event {
   void OnAutoTurn();
   void CheckWinner();
   void EndGame(int winner);
-  int GetGridIndexToDefend();
+  int GetGridIndexToDefendOrAttack(int turn);
   int GetEmptyGridIndexRandom();
 
  private:

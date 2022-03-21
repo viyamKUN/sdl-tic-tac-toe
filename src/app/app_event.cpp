@@ -7,6 +7,9 @@ namespace game {
 void App::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
 void App::OnLButtonDown(int mX, int mY) {
+  if (!isOnGame) {
+    return;
+  }
   int id = (mX / GridSize) + (mY / GridSize) * 3;
   if (grid[id] != NONE) {
     return;
@@ -14,9 +17,9 @@ void App::OnLButtonDown(int mX, int mY) {
   if (current_player == 0) {
     SetCell(id, PLAYER);
     current_player = 1;
+    CheckWinner();
     OnAutoTurn();
   }
-  CheckWinner();
 }
 
 void App::OnExit() { isRunning = false; }
